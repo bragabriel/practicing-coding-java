@@ -13,15 +13,21 @@ public class LED {
     public static void main(String[] args) throws IOException {
     
         Scanner scanner = new Scanner(System.in);
+        
+        Double vlrTot = 0.0;
+        Integer i = 0; 
 
-        Integer testScenarios = scanner.nextInt();
-        scanner.nextLine();
-
-        for(Integer i=0; i<testScenarios; i++){
-            String num = scanner.nextLine();
-            Integer numOfLeds = matchesAndCount(num);
-            System.out.println(numOfLeds + " leds");
+        while(i<2){
+            i++;
+            
+            Integer peca = scanner.nextInt();
+            Integer num = scanner.nextInt();
+            Double vlr = scanner.nextDouble();
+            
+            vlrTot += num*vlr;
         }
+        
+        System.out.printf("VALOR A PAGAR: R$ %.2f\n", vlrTot);
         
         scanner.close();
     }
