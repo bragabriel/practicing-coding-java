@@ -1,3 +1,4 @@
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -7,21 +8,19 @@ class Solution {
 		ArrayList<Integer> reversedL1 = reverseOrder(l1);
 		ArrayList<Integer> reversedL2 = reverseOrder(l2);
 
-		int n1 = toNum(reversedL1);
-		int n2 = toNum(reversedL2);
+		BigInteger n1 = toNum(reversedL1);
+		BigInteger n2 = toNum(reversedL2);
 
-		int result = n1 + n2;
+		BigInteger result = n1.add(n2);
 
 		String resultInString = String.valueOf(result); //807
 
 		String reversed = new StringBuilder(resultInString).reverse().toString(); //708
 
-		ListNode finalListNode = createListNode(reversed);
-
-		return finalListNode;
+		return createListNode(reversed);
 	}
 
-	public ListNode createListNode(String size){
+	public ListNode createListNode(String size) {
 		ListNode finalListNode = new ListNode();
 		var pointer = finalListNode;
 
@@ -43,7 +42,7 @@ class Solution {
 
 		var current = listNode;
 
-		while(current != null){
+		while (current != null) {
 			auxList.add(current.val);
 			current = current.next;
 		}
@@ -53,15 +52,17 @@ class Solution {
 		return auxList;
 	}
 
-	public int toNum(ArrayList<Integer> list){
-		int result = 0;
-		for(int digit : list){
-			result = result * 10 + digit;
+	public BigInteger toNum(ArrayList<Integer> list) {
+		BigInteger result = BigInteger.ZERO;
+		for (int digit : list) {
+			result = result.multiply(BigInteger.TEN).add(BigInteger.valueOf(digit));
 		}
 		return result;
 	}
 
-	/**Definition for singly-linked list.**/
+	/**
+	 * Definition for singly-linked list.
+	 **/
 	public class ListNode {
 		int val;
 		ListNode next;
