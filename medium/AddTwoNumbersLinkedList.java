@@ -2,7 +2,7 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collections;
 
-class Solution {
+class AddTwoNumbersLinkedList {
 	public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
 		ArrayList<Integer> reversedL1 = reverseOrder(l1);
@@ -24,7 +24,7 @@ class Solution {
 		ListNode finalListNode = new ListNode();
 		var pointer = finalListNode;
 
-		for (int i = 0; i < size.length(); i++) {
+		for (int i = 0; i < size.length(); i++) { //O(n)
 			char number = size.charAt(i);
 			pointer.val = Character.getNumericValue(number);
 
@@ -42,7 +42,7 @@ class Solution {
 
 		var current = listNode;
 
-		while (current != null) {
+		while (current != null) { //Big O(n)
 			auxList.add(current.val);
 			current = current.next;
 		}
@@ -54,7 +54,7 @@ class Solution {
 
 	public BigInteger toNum(ArrayList<Integer> list) {
 		BigInteger result = BigInteger.ZERO;
-		for (int digit : list) {
+		for (int digit : list) { //O(n)
 			result = result.multiply(BigInteger.TEN).add(BigInteger.valueOf(digit));
 		}
 		return result;
