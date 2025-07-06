@@ -24,19 +24,18 @@ class FindLuckyInteger {
 		});
 
 		for(Map.Entry<Integer, Integer> item : map.entrySet()){
-			if(Objects.equals(item.getKey(), item.getValue())) {
+			if(item.getKey() == item.getValue()) {
 				if(item.getValue() > biggestValue){
 					biggestValue = item.getValue();
-					System.out.println("biggest: " + biggestValue);
 				}
-			}else if(biggestValue != Integer.MIN_VALUE) {
-				return biggestValue;
-			}
-			else {
-				return -1;
 			}
 		}
 
-		return biggestValue;
+		if(biggestValue != Integer.MIN_VALUE) {
+			return biggestValue;
+		}
+		else {
+			return -1;
+		}
 	}
 }
